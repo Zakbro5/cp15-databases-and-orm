@@ -1,3 +1,10 @@
+from helper_functions import clear_screen
+clear_screen()
+
+# ============================
+# SQLITE WITH PANDAS
+# ============================
+
 import sqlite3
 import pandas as pd
 
