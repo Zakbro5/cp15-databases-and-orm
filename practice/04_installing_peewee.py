@@ -16,7 +16,7 @@ clear_screen()
 # INSTALLING PACKAGES WITH PIP
 # ============================
 
-import peewee as pd
+import peewee
 
 '''
 FIRST:
