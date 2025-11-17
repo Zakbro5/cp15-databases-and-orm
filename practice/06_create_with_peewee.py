@@ -36,10 +36,11 @@ it is more justifiable.
 '''
 
 
-# 1. IMPORT EVERYTHING FROM PEEWEE
-# Use the syntax: from peewee import *
+# 1. IMPORT PEEWEE
+# Make sure to import peewee. If you want you can use from peewee import *
 # This will give you access to everything inside of the peewee library without
-# needing to type out peewee. before everything.
+# needing to type out peewee. before everything. But to start out, we might
+# just import peewee to show where everything is coming from.
 
 
 
@@ -49,15 +50,16 @@ it is more justifiable.
 
 
 
+
 # 3. CREATE YOUR ORM MODEL FOR THE CUSTOMER TABLE
 # Create a Customer class. This will need to inherit from peewee's class Base.
 # You want your customer table to have the following fields (columns), so they
 # need to be included in your class:
 #   id_customer: AutoField(primary_key=True)
 #   name: CharField
-#   email: CharField
+#   email: CharField(null=True)
 #   birth_year: IntegerField
-#   state: CharField
+#   state: CharField(default="UT")
 
 
 '''
@@ -76,9 +78,18 @@ RULES FOR peewee MODELS
         AutoField() - for primary keys. Creates an integer that automatically
                       increments by one for each new thing
 
+    You can also specify in the field types:
+        null=True
+            - if you want that field to be optional (it doesn't need data)
+        
+        default='default value'
+            - if you want to set a default value for each row you create. 
+              Similar to setting a defalut value in a function.
+
 3. Inside of your class, you need ANOTHER class called `Meta` with a class
    variable called `database` set equal to your database connection object
 '''
+
 
 
 # 4. CONNECT TO YOUR DATABASE AND CREATE THE CUSTOMER TABLE
@@ -94,6 +105,7 @@ RULES FOR peewee MODELS
 # provide the field names and the values for that field (e.g. name="John") for
 # each field. Store the result in a variable, and then try printing out the
 # name of the object that it gave you.
+
 
 
 '''

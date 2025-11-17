@@ -83,8 +83,18 @@ for customer_obj in filtered_customers:
     print(customer_obj.get_info())
 print()
 
+# 5. ORDER THE RESULTS
+# Use .order_by(table.column_name) to order the results in a specific way
+# You can add .desc() to a column name if you want it in reverse order.
+# Try getting the same results as #4, but order the results by birth year
+# in descending order.
 
-# 4. GET A SUBSET OF THE DATA WITH MULTIPLE CONDITIONS
+filtered_customers_ord = Customer.select().where(Customer.birth_year > 1990).order_by(Customer.birth_year.desc())  
+for customer_obj in filtered_customers_ord:
+    print(customer_obj.get_info())
+print()
+
+# 6. GET A SUBSET OF THE DATA WITH MULTIPLE CONDITIONS
 # Using .where() after .select() Get only those customers born after 1990 and
 # from Pennsylvania (PA). In peewee, you need to put each condition in
 # parentheses, with `&` instead of `and`. (| is used instead of or. ~ is used
@@ -95,8 +105,8 @@ for customer_obj in filtered_customers:
     print(customer_obj.get_info())
 
 
-# 5. GET A SINGLE RECORD USING .get
-# This will give you an error if it can't find exactly 1 row in the database
+# 7. GET A SINGLE RECORD USING .get
+# .get() limits the result to a single row.
 # Best used with ids (primary keys). Get customer with the id of 3 and print
 # out their name
 
