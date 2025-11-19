@@ -41,7 +41,7 @@ db.create_tables([Customer])
 
 
 '''
-You can also update multuiple records using .update
+You can also update multiple records using .update
 
 e.g.
 Student.update({Student.age: 25}).where(Student.age < 21).execute()
