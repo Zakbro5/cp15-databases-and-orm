@@ -84,13 +84,20 @@ customers = [
 # parentheses, with `&` instead of `and`. (| is used instead of or. ~ is used
 # instead of not).
 
+clear_screen()
+subset_customers = Customer.select().where((Customer.birth_year > 1990) & (Customer.state == 'PA'))
+
+for cust_obj in subset_customers:
+    print(cust_obj.get_info())
+    print()
 
 # 7. GET A SINGLE RECORD USING .get
 # .get() limits the result to a single row.
 # Best used with ids (primary keys). Get customer with the id of 3 and print
 # out their name
-
-
+clear_screen()
+single_row = Customer.get(Customer.id_customer == 7)
+print(single_row.get_info())
 
 '''
 Other methods:
